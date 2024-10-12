@@ -7,9 +7,13 @@ const data = ref({
   props: {
     templateColumns: ['1fr'],
     style: {
+      position: 'absolute',
+      top: 0,
+      left: '50%',
+      transform: 'translateX(-50%)',
       fontSize: '14px',
       maxWidth: '768px',
-      margin: '20px 0 20px 100px',
+      margin: '20px 0',
       padding: '15px',
       boxShadow: '0 0 10px 2px rgb(from var(--base-color-lighter-inverse) r g b / 30%)',
       borderRadius: '10px',
