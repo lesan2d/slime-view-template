@@ -8,7 +8,11 @@ const data = ref({
     templateColumns: ['1fr'],
     style: {
       fontSize: '14px',
-      marginLeft: '100px',
+      maxWidth: '768px',
+      margin: '20px 0 20px 100px',
+      padding: '15px',
+      boxShadow: '0 0 10px 2px rgb(from var(--base-color-lighter-inverse) r g b / 30%)',
+      borderRadius: '10px',
     },
   },
   children: [
@@ -24,13 +28,19 @@ const data = ref({
         {
           type: 'p',
           props: {
-            innerHTML: '该模板使用了 SlimeView 引擎进行开发，大部分内容都可以进行拖拽编辑，但仅限PC端使用，建议使用电脑浏览',
+            innerHTML: '此模板采用SlimeView引擎开发，大部分内容支持拖拽编辑，仅限PC端，建议电脑浏览。',
           },
         },
         {
           type: 'p',
           props: {
             innerHTML: 'SlimeView 是用 Vue3 实现的低代码引擎，是为了用于二次开发低代码平台而设计的，提供了低代码平台该有的拖拽/编辑组件、导入/导出组件代码等基础功能。',
+          },
+        },
+        {
+          type: 'p',
+          props: {
+            innerHTML: '因时间紧迫，现用简易Markdown模拟示例介绍，此引擎已包含多数核心功能，未来开发完整网站或系统项目无忧。',
           },
         },
       ],
@@ -56,13 +66,13 @@ const data = ref({
             {
               type: 'p',
               props: {
-                innerHTML: '目前暂时只提供简单的文本类属性编辑功能',
+                innerHTML: '目前仅支持基础的文本属性编辑功能。',
               },
             },
             {
               type: 'p',
               props: {
-                innerHTML: '鼠标点击此处，即可打开右侧操作面板，在输入框内可以编辑该内容',
+                innerHTML: '点击这里，右侧操作面板将展开，您可以在输入框中编辑相应内容。',
                 style: {
                   backgroundColor: '#F4F4F4',
                   padding: '30px 0',
@@ -84,7 +94,7 @@ const data = ref({
             {
               type: 'p',
               props: {
-                innerHTML: '同时还支持js事件，但是因为编辑后会将function类型改为string，所以无法使用，后续后更新专门的Form编辑组件',
+                innerHTML: '同时支持 JavaScript 事件，但由于编辑后 function 类型会被转换为 string，因此无法使用。后续将更新专门的 Form 编辑组件。',
               },
             },
             {
@@ -100,7 +110,7 @@ const data = ref({
                 innerHTML: '变更文本',
                 onClick: function () {
                   const p = document.getElementById('demo-text');
-                  p.innerHTML = '鼠标点击此处，即可打开右侧操作面板，在输入框内可以编辑该内容';
+                  if (p) p.innerHTML = '点击此处，便能开启右侧操作面板，您可在输入框中对内容进行编辑。';
                 }
               },
             },
@@ -110,7 +120,7 @@ const data = ref({
                 innerHTML: '重置文本',
                 onClick: function () {
                   const p = document.getElementById('demo-text');
-                  p.innerHTML = '点击下方按钮编辑此处文本';
+                  if (p) p.innerHTML = '点击下方按钮以编辑此处的文本。';
                 }
               },
             },
@@ -128,7 +138,7 @@ const data = ref({
             {
               type: 'p',
               props: {
-                innerHTML: '目前仅内置了一些简单的垃圾组件，后续将会支持通过JSON外部引入自定义组件，让你渲染自己开发的组件',
+                innerHTML: '目前已内置一些基础组件，未来将支持通过 JSON 外部导入自定义组件，渲染自主开发的组件。',
               },
             },
             {
@@ -145,7 +155,7 @@ const data = ref({
                 {
                   type: 'p',
                   props: {
-                    innerHTML: '↓打开左侧面板，将需要的组件拖拽到这个位置，或排序在其前后位置，多自己试试吧！↓',
+                    innerHTML: '↓点击左侧面板，把需要的组件拖拽至此处，或调整它们之间的顺序，多自己试试吧！↓',
                   },
                 },
               ],
@@ -153,7 +163,7 @@ const data = ref({
             {
               type: 'p',
               props: {
-                innerHTML: '此外你还可以输入在线链接，加入一些你喜欢表情包',
+                innerHTML: '此外，您还可以更改下方图片链接，替换自己喜欢的表情包。',
               },
             },
             {
@@ -165,7 +175,7 @@ const data = ref({
             {
               type: 'p',
               props: {
-                innerHTML: '体验完后别忘记了打开代码查看下源码，后续将会支持代码导入导出！',
+                innerHTML: '体验结束后，别忘了查看源代码，后续将支持代码的导入与导出功能！',
               },
             },
           ],
