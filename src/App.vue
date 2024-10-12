@@ -62,7 +62,6 @@ const data = ref({
             {
               type: 'p',
               props: {
-                id: 'demo-text',
                 innerHTML: '鼠标点击此处，即可打开右侧操作面板，在输入框内可以编辑该内容',
                 style: {
                   backgroundColor: '#F4F4F4',
@@ -89,12 +88,29 @@ const data = ref({
               },
             },
             {
+              type: 'p',
+              props: {
+                id: 'demo-text',
+                innerHTML: '----------点击下方按钮编辑此处文本----------',
+              },
+            },
+            {
               type: 'button',
               props: {
-                innerHTML: '点击重置上方文本',
+                innerHTML: '变更文本',
                 onClick: function () {
                   const p = document.getElementById('demo-text');
                   p.innerHTML = '鼠标点击此处，即可打开右侧操作面板，在输入框内可以编辑该内容';
+                }
+              },
+            },
+            {
+              type: 'button',
+              props: {
+                innerHTML: '重置文本',
+                onClick: function () {
+                  const p = document.getElementById('demo-text');
+                  p.innerHTML = '点击下方按钮编辑此处文本';
                 }
               },
             },
