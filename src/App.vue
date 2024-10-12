@@ -237,6 +237,10 @@ const data = ref({
   background-color: var(--base-color-light);
 }
 
+.panel-main {
+  background-color: var(--base-color-lighter) !important;
+}
+
 input {
   background-color: transparent;
 }
