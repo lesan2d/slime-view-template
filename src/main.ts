@@ -1,5 +1,10 @@
 import { createApp } from 'vue';
-import 'slime-view/style';
 import App from './App.vue';
+import SetsUi from 'sets-ui';
 
-createApp(App).mount('#app');
+import 'slime-view/style';
+import 'sets-ui/theme-default';
+
+const app = createApp(App);
+app.use(SetsUi);
+app.mount('#app');

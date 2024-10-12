@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  sets-ui:
+    specifier: ^0.0.22
+    version: 0.0.22
   slime-view:
     specifier: ^0.0.3
     version: 0.0.3
@@ -673,6 +676,10 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
     dev: true
+
+  /sets-ui@0.0.22:
+    resolution: {integrity: sha512-Qw9/+sYqOA2ocqn5OxL/OmJm342an3/BrYS/l02y0/YDFsDVbsfpVQHjoJBvJzZA2+xwf71XpGgbL7m3aKzJjg==}
+    dev: false
 
   /slime-view@0.0.3:
     resolution: {integrity: sha512-pzlFMNIY5TI4yQVM+aIHG8qIMuem+QzQ7//8ld8l3HOJ+pqLmkTY573hp/3em0/DQHpGzkWUZN4IfBCUmltpZg==}

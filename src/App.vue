@@ -17,6 +17,7 @@ const data = ref({
       padding: '15px',
       boxShadow: '0 0 10px 2px rgb(from var(--base-color-lighter-inverse) r g b / 30%)',
       borderRadius: '10px',
+      backgroundColor: 'var(--base-color-lighter)',
     },
   },
   children: [
@@ -28,6 +29,35 @@ const data = ref({
           props: {
             innerHTML: '欢迎来到SlimeView低代码平台Demo',
           },
+        },
+        {
+          type: 'div',
+          children: [
+            {
+              type: 'span',
+              props: {
+                innerHTML: '示例源代码请点击',
+              },
+            },
+            {
+              type: 'a',
+              props: {
+                innerHTML: '此处',
+                href: 'https://github.com/lesan2d/slime-view-template/blob/main/src/App.vue',
+                target: '_blank',
+                style: {
+                  '--s-button-padding': 0,
+                  'text-decoration-line': 'underline',
+                },
+              },
+            },
+            {
+              type: 'span',
+              props: {
+                innerHTML: '。',
+              },
+            },
+          ],
         },
         {
           type: 'p',
@@ -78,7 +108,7 @@ const data = ref({
               props: {
                 innerHTML: '点击这里，右侧操作面板将展开，您可以在输入框中编辑相应内容。',
                 style: {
-                  backgroundColor: '#F4F4F4',
+                  backgroundColor: 'var(--base-color-light)',
                   padding: '30px 0',
                   color: 'red',
                 }
@@ -102,31 +132,33 @@ const data = ref({
               },
             },
             {
-              type: 'p',
+              type: 'SButton',
               props: {
-                id: 'demo-text',
-                innerHTML: '----------点击下方按钮编辑此处文本----------',
-              },
-            },
-            {
-              type: 'button',
-              props: {
-                innerHTML: '变更文本',
+                type: 'primary',
                 onClick: function () {
-                  const p = document.getElementById('demo-text');
-                  if (p) p.innerHTML = '点击此处，便能开启右侧操作面板，您可在输入框中对内容进行编辑。';
+                  document.documentElement.classList.add('dark');
                 }
               },
+              slots: {
+                default: {
+                  type: 'span',
+                  props: { innerHTML: '切换暗黑主题', },
+                },
+              }
             },
             {
-              type: 'button',
+              type: 'SButton',
               props: {
-                innerHTML: '重置文本',
                 onClick: function () {
-                  const p = document.getElementById('demo-text');
-                  if (p) p.innerHTML = '点击下方按钮以编辑此处的文本。';
+                  document.documentElement.classList.remove('dark');
                 }
               },
+              slots: {
+                default: {
+                  type: 'span',
+                  props: { innerHTML: '恢复', },
+                },
+              }
             },
           ],
         },
@@ -149,7 +181,7 @@ const data = ref({
               type: 'div',
               props: {
                 style: {
-                  backgroundColor: '#F4F4F4',
+                  backgroundColor: 'var(--base-color-light)',
                   padding: '10px 30px',
                   width: '100%',
                   height: '100px',
@@ -196,4 +228,16 @@ const data = ref({
   <SvPanelNode />
 </template>
 
-<style scoped></style>
+<style>
+* {
+  color: var(--base-color-inverse);
+}
+
+:root {
+  background-color: var(--base-color-light);
+}
+
+input {
+  background-color: transparent;
+}
+</style>
