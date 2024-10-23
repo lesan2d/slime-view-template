@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "sets-ui": "^0.0.22",
-    "slime-view": "^0.0.3",
+    "slime-view": "^0.0.4",
     "vue": "^3.5.10"
   },
   "devDependencies": {

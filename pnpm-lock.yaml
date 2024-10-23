@@ -9,8 +9,8 @@ dependencies:
     specifier: ^0.0.22
     version: 0.0.22
   slime-view:
-    specifier: ^0.0.3
-    version: 0.0.3
+    specifier: ^0.0.4
+    version: 0.0.4
   vue:
     specifier: ^3.5.10
     version: 3.5.10(typescript@5.5.3)
@@ -681,8 +681,8 @@ packages:
     resolution: {integrity: sha512-Qw9/+sYqOA2ocqn5OxL/OmJm342an3/BrYS/l02y0/YDFsDVbsfpVQHjoJBvJzZA2+xwf71XpGgbL7m3aKzJjg==}
     dev: false
 
-  /slime-view@0.0.3:
-    resolution: {integrity: sha512-pzlFMNIY5TI4yQVM+aIHG8qIMuem+QzQ7//8ld8l3HOJ+pqLmkTY573hp/3em0/DQHpGzkWUZN4IfBCUmltpZg==}
+  /slime-view@0.0.4:
+    resolution: {integrity: sha512-kD6/F1u9UUp7oq7eKRZhVGIwd4j6zmOspO3H6K1/oGxMjFTt/mJoHmuR7lhoCPH4qgxBbJ3NCO0LW3jVNBE97A==}
     dev: false
 
   /source-map-js@1.2.1:

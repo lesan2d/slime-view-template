@@ -2,7 +2,9 @@
 import { ref } from 'vue';
 import { SvEditor, SvPanelMain, SvPanelNode } from 'slime-view';
 
-const data = ref({
+const radioGroupValue = ref('Normal');
+
+const data = {
   type: 'div',
   props: {
     templateColumns: ['1fr'],
@@ -13,6 +15,8 @@ const data = ref({
       transform: 'translateX(-50%)',
       fontSize: '14px',
       maxWidth: '768px',
+      height: 'calc(100% - 40px)',
+      overflowY: 'scroll',
       margin: '20px 0',
       padding: '15px',
       boxShadow: '0 0 10px 2px rgb(from var(--base-color-lighter-inverse) r g b / 30%)',
@@ -74,7 +78,7 @@ const data = ref({
         {
           type: 'p',
           props: {
-            innerHTML: '因时间紧迫，现用简易Markdown模拟示例介绍，此引擎已包含多数核心功能，未来开发完整网站或系统项目无忧。',
+            innerHTML: '当前开发内容使用简易Markdown模拟示例介绍，此引擎已包含多数核心功能，未来将支持完整网站或系统项目构建。',
           },
         },
       ],
@@ -94,7 +98,7 @@ const data = ref({
             {
               type: 'h3',
               props: {
-                innerHTML: '文本编辑',
+                innerHTML: '#文本编辑',
               },
             },
             {
@@ -122,41 +126,149 @@ const data = ref({
             {
               type: 'h3',
               props: {
-                innerHTML: 'JS编辑',
+                innerHTML: '#JavaScript支持',
+              },
+            },
+            {
+              type: 'h4',
+              props: {
+                innerHTML: 'Vue v-model',
               },
             },
             {
               type: 'p',
               props: {
-                innerHTML: '同时支持 JavaScript 事件，但由于编辑后 function 类型会被转换为 string，因此无法使用。后续将更新专门的 Form 编辑组件。',
+                innerHTML: '使用 Vue3 JSX 实现，支持大部分渲染函数语法，通过闭包访问 ref 值实现一些 JavaScript编程。',
+              },
+            },
+            {
+              type: 'p',
+              props: {
+                innerHTML: '下面使用 s-radio-group 组件演示 v-model 的用法，完整示例代码请查看仓库。',
+              },
+            },
+            {
+              type: 'SRadioGroup',
+              props: {
+                modelValue: radioGroupValue,
+                'onUpdate:modelValue': (value: any) => {
+                  radioGroupValue.value = value;
+                  const key = radioGroupValue.value === 'Dark' ? 'add' : 'remove';
+                  document.documentElement.classList[key]('dark');
+                },
+                class: ['flex', 'items-center'],
+              },
+              slots: {
+                default: [
+                  {
+                    type: 'span',
+                    props: {
+                      innerHTML: '主题切换：',
+                    },
+                  },
+                  {
+                    type: 'SRadio',
+                    props: {
+                      value: 'Normal',
+                    },
+                    slots: {
+                      default: {
+                        type: 'span',
+                        props: {
+                          innerHTML: '正常主题',
+                        },
+                      },
+                    },
+                  },
+                  {
+                    type: 'SRadio',
+                    props: {
+                      value: 'Dark',
+                    },
+                    slots: {
+                      default: {
+                        type: 'span',
+                        props: {
+                          innerHTML: '暗黑主题',
+                        },
+                      },
+                    },
+                  },
+                ]
+              }
+            },
+            {
+              type: 'p',
+              children: [
+                {
+                  type: 'span',
+                  props: {
+                    innerHTML: '当前值：',
+                  },
+                },
+                {
+                  type: 'span',
+                  props: {
+                    innerHTML: radioGroupValue,
+                  },
+                }
+              ],
+            },
+            {
+              type: 'p',
+              props: {
+                innerHTML: '大致代码：',
+              },
+            },
+            {
+              type: 'pre',
+              props: {
+                style: {
+                  padding: '5px 10px',
+                  backgroundColor: 'var(--color-bg)',
+                },
+                innerHTML: `const radioGroupValue = ref('A');
+
+const node = {
+  type: 'SRadioGroup',
+  props: {
+    modelValue: radioGroupValue,
+    'onUpdate:modelValue': (value: any) => {
+      radioGroupValue.value = value;
+      const key = radioGroupValue.value === 'Dark' ? 'add' : 'remove';
+      document.documentElement.classList[key]('dark');
+    },
+    class: ['flex', 'items-center'],
+  },
+  slots: { default: [...] },
+};
+`,
+              },
+            },
+            {
+              type: 'h4',
+              props: {
+                innerHTML: 'Component Event',
+              },
+            },
+            {
+              type: 'p',
+              props: {
+                innerHTML: 'Vue3 JSX 组件事件用法示例<br/>点击下方按钮，显示当前主题模式',
               },
             },
             {
               type: 'SButton',
               props: {
                 type: 'primary',
-                onClick: function () {
-                  document.documentElement.classList.add('dark');
+                onClick: () => {
+                  window.alert(`当前主题为: {{ ${radioGroupValue.value} }}`);
                 }
               },
               slots: {
                 default: {
                   type: 'span',
-                  props: { innerHTML: '切换暗黑主题', },
-                },
-              }
-            },
-            {
-              type: 'SButton',
-              props: {
-                onClick: function () {
-                  document.documentElement.classList.remove('dark');
-                }
-              },
-              slots: {
-                default: {
-                  type: 'span',
-                  props: { innerHTML: '恢复', },
+                  props: { innerHTML: 'alert', },
                 },
               }
             },
@@ -219,7 +331,7 @@ const data = ref({
       ],
     },
   ],
-});
+};
 </script>
 
 <template>
@@ -229,19 +341,7 @@ const data = ref({
 </template>
 
 <style>
-* {
-  color: var(--base-color-inverse);
-}
-
-:root {
-  background-color: var(--base-color-light);
-}
-
-.panel-main {
-  background-color: var(--base-color-lighter) !important;
-}
-
-input {
-  background-color: transparent;
+body {
+  margin: 0;
 }
 </style>
