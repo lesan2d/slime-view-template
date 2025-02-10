@@ -9,15 +9,11 @@ const data = {
   props: {
     templateColumns: ['1fr'],
     style: {
-      position: 'absolute',
-      top: 0,
-      left: '50%',
-      transform: 'translateX(-50%)',
       fontSize: '14px',
       maxWidth: '768px',
       height: 'calc(100% - 40px)',
       overflowY: 'scroll',
-      margin: '20px 0',
+      margin: '20px auto',
       padding: '15px',
       boxShadow: '0 0 10px 2px rgb(from var(--base-color-lighter-inverse) r g b / 30%)',
       borderRadius: '10px',
@@ -115,6 +111,35 @@ const data = {
                   backgroundColor: 'var(--base-color-light)',
                   padding: '30px 0',
                   color: 'red',
+                }
+              },
+            },
+          ],
+        },
+        {
+          type: 'div',
+          children: [
+            {
+              type: 'h3',
+              props: {
+                innerHTML: '#内容编辑',
+              },
+            },
+            {
+              type: 'p',
+              props: {
+                innerHTML: '请在此处下方拖拽插入内容',
+              },
+            },
+            {
+              type: 'div',
+              props: {
+                allowDropType: ['inner'],
+                style: {
+                  backgroundColor: 'var(--base-color-light)',
+                  minHeight: '100px',
+                  padding: '10px',
+                  color: '#000',
                 }
               },
             },
