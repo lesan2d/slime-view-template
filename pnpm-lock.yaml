@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   sets-ui:
-    specifier: ^0.0.22
-    version: 0.0.22
+    specifier: ^0.0.26
+    version: 0.0.26
   slime-view:
     specifier: ^0.0.6
     version: 0.0.6
@@ -677,8 +677,8 @@ packages:
     hasBin: true
     dev: true
 
-  /sets-ui@0.0.22:
-    resolution: {integrity: sha512-Qw9/+sYqOA2ocqn5OxL/OmJm342an3/BrYS/l02y0/YDFsDVbsfpVQHjoJBvJzZA2+xwf71XpGgbL7m3aKzJjg==}
+  /sets-ui@0.0.26:
+    resolution: {integrity: sha512-DIo5JTYhBx+ZX8KVc+OqZDllDFpAB68Aa6Q5CSBo6juDmw1pcoZZ9fAmYGz9rLeXFH2biwot438mWxZuj7dOiQ==}
     dev: false
 
   /slime-view@0.0.6:
